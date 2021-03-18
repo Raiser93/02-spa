@@ -1,0 +1,25 @@
+<h1>Buscador <small>{{ termino }}</small></h1>
+<hr>
+
+<div class="row animated fadeIn fast" *ngIf="!heroes || !heroes.length">
+
+    <div class="col-md-12">
+
+        <div class="alert alert-info" role="alert">
+            
+            No existen resultados con el termino: {{ termino }}
+        
+        </div>
+
+    </div>
+
+</div>
+
+<div class="card-columns">
+
+    <app-heroes-card *ngFor="let heroe of heroes; let i = index"
+        [heroe]="heroe"
+        [id]="i"
+        (onVerHeroe)="verHeroe($event)"></app-heroes-card>
+
+</div>
